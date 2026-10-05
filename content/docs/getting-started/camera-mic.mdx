@@ -1,0 +1,14 @@
+---
+title: Allow camera and microphone access
+description: Grant Chrome permission to use your camera and mic, and what to do when a site blocks them.
+---
+
+If Recordful shows "doesn't have permission", grant it once in Chrome:
+
+1. Click the camera icon in the address bar.
+2. Set Camera and Microphone to Allow for this site.
+3. Reopen the Recordful popup and pick your devices again.
+
+Some websites send a `Permissions-Policy` header that blocks all extensions from using the camera and microphone on that page. On those pages the recording still works, but the camera bubble stays hidden. Workaround: start the recording from another tab, then switch back to the page once recording has begun.
+
+To test: open the popup, select a camera and microphone in the dropdowns, and check the preview bubble appears before you press record.

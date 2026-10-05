@@ -1,0 +1,10 @@
+---
+title: Log in and out
+description: How the extension signs in through the website and what the token does.
+---
+
+1. In the popup, press Log in. A `recordful.app/login` tab opens.
+2. Sign in with Google or email. The tab closes itself and the popup shows you logged in.
+3. The site hands the extension a session token so cloud features work. Logging out in the popup clears it.
+
+If login loops or the popup stays logged out, clear `recordful.app` cookies, reload the extension from `chrome://extensions`, and try again. Still stuck: contact support with the debug info from the popup (copy-debug-info button).

@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+
+:root {
+  --brand-gradient: linear-gradient(135deg, #fc7b20 0%, #fc3969 38%, #e537df 62%, #8a34fa 100%);
+  --brand-flat: #8a34fa;
+  --paper: #faf9f6;
+  --ink: #1c1c1c;
+  --muted: #5f5f5d;
+  --border-subtle: #edebe7;
+  --border-interactive: #d4d3d0;
+}
+
+html body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* signature gradient field for the home hero, per design.md 2.5 */
+.gradient-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.gradient-field::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% -10%;
+  filter: blur(140px);
+  background:
+    radial-gradient(42% 46% at 22% 96%, #8a34fa 0%, transparent 70%),
+    radial-gradient(52% 50% at 52% 104%, #fc3969 0%, transparent 72%),
+    radial-gradient(40% 44% at 82% 92%, #fc7b20 0%, transparent 70%),
+    radial-gradient(46% 40% at 66% 82%, #e537df 0%, transparent 74%);
+}
+.gradient-field::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    #faf9f6 0%,
+    rgba(250, 249, 246, 0.82) 22%,
+    rgba(250, 249, 246, 0) 46%
+  );
+}
