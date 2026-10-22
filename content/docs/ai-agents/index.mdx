@@ -1,0 +1,38 @@
+---
+title: Recordful for AI agents
+description: "Let Claude Code, Cursor, Codex, opencode or any AI app record product demos, upload them and read transcripts back, through MCP or a shell."
+---
+
+Ask your AI to "record how the new sign-up flow works". It plans a short walkthrough, asks you to click the Recordful icon on the tab, then navigates, clicks and types with a smooth on-screen cursor while Recordful records. When it stops, Recordful's editor opens with the video. With Recordful Pro it can also upload the video, hand you the link and read the transcript back.
+
+It runs on your computer: nothing to host, no account, no API key. The AI never needs a browser of its own, because Recordful's tools do the clicking.
+
+## What your AI can do
+
+| Goal | How | Plan |
+| --- | --- | --- |
+| Record a feature end to end | Start, pause, resume and stop, with page actions in between | Free and Pro |
+| Drive the page | Navigate, read the page, click, type, press keys, scroll, wait, screenshot | Free and Pro |
+| Share | Upload a recording and return the link | Pro |
+| Understand | Read back what was said (text or VTT) | Pro |
+| Find videos | List your videos and check an upload's progress | Pro |
+
+On the free plan your AI records as usual and tells you once that links and transcripts come with Pro. It never fails for that reason.
+
+## Two ways in
+
+- **MCP server.** Your AI app runs `npx -y recordful-mcp` and gets the tools. Works in Claude Code, Claude Desktop, Cursor, VS Code, Windsurf, opencode, Codex, Gemini CLI and any app that supports the Model Context Protocol.
+- **Command line.** Anything with a shell can use `recordful-mcp start`, `stop`, `upload`, `transcript` and more, with `--json` for machine-readable output. See [Command line](/docs/ai-agents/cli).
+
+## Get started in two minutes
+
+1. Install Recordful from the Chrome Web Store.
+2. Add Recordful to your AI app: [paste one prompt](/docs/ai-agents/setup-prompt) and let the AI do it, or follow [Set up your AI app](/docs/ai-agents/setup).
+3. In Recordful's popup, open **More → AI agents** and turn it on. Chrome asks to allow screen recording once; click **Allow**.
+4. Ask your AI to record something. When it asks, click the Recordful icon on the tab, and approve the 4-digit pairing code the first time.
+
+## Why you click the icon
+
+Chrome only lets an extension record a tab after a person has clicked it there, and no app can click for you. The click also marks the one tab your AI may act in. Everything else is up to your AI.
+
+See [Workflows](/docs/ai-agents/workflows) for things to ask, and [Safety and troubleshooting](/docs/ai-agents/safety) for what the AI can and cannot do, and fixes for common problems.

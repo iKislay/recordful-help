@@ -1,0 +1,56 @@
+---
+title: Set up your AI app
+description: "Add Recordful to Claude Code, Claude Desktop, Cursor, Codex, opencode, VS Code, Windsurf or Gemini CLI."
+---
+
+You need Chrome, [Recordful](https://chromewebstore.google.com/detail/hkcgjbkibidgbefehehenlmhjanjaopc) and [Node.js](https://nodejs.org) 20.10 or newer. The Claude Desktop bundle includes everything, so it doesn't need Node.
+
+## The quick way: one command
+
+```bash
+npx -y recordful-mcp install --target claude
+```
+
+`--target` is one of `claude`, `cursor`, `codex`, `opencode`, `vscode`, `windsurf` or `gemini`. Without `--yes` it only shows what it would change; add `--yes` to apply:
+
+```bash
+npx -y recordful-mcp install --target cursor --yes
+```
+
+It adds the server to that app's own configuration (and the `record-demo` skill for Claude Code, Cursor and Codex), keeps your other servers and settings, and leaves a file it can't read untouched, telling you the entry to add yourself. Restart the app afterwards so it loads Recordful.
+
+Or [paste one prompt](/docs/ai-agents/setup-prompt) into your AI app and let it run these steps for itself.
+
+## By hand
+
+| App | Where | What to add |
+| --- | --- | --- |
+| Claude Code | terminal | `claude mcp add --scope user recordful -- npx -y recordful-mcp` (native Windows: `... -- cmd /c npx -y recordful-mcp`). Or the plugin: `/plugin marketplace add iKislay/recordful-mcp`, then `/plugin install recordful@recordful` |
+| Claude Desktop | Settings → Extensions | Install `recordful.mcpb` from the [latest release](https://github.com/iKislay/recordful-mcp/releases/latest), or add the entry below to `claude_desktop_config.json` |
+| Cursor | `~/.cursor/mcp.json` | the entry below |
+| Windsurf | `~/.codeium/windsurf/mcp_config.json` | the entry below |
+| Gemini CLI | `~/.gemini/settings.json` | the entry below |
+| VS Code | **MCP: Add Server**, or `.vscode/mcp.json` | `{ "servers": { "recordful": { "type": "stdio", "command": "npx", "args": ["-y", "recordful-mcp"] } } }` |
+| opencode | `opencode.json` | `{ "mcp": { "recordful": { "type": "local", "command": ["npx", "-y", "recordful-mcp"], "enabled": true } } }` |
+| Codex | `~/.codex/config.toml` | `[mcp_servers.recordful]`, `command = "npx"`, `args = ["-y", "recordful-mcp"]` |
+
+The entry for most apps:
+
+```json
+{ "mcpServers": { "recordful": { "command": "npx", "args": ["-y", "recordful-mcp"] } } }
+```
+
+`npx -y recordful-mcp setup` prints all of these.
+
+## Turn it on in Recordful (once)
+
+1. Open Recordful's popup, then **More → AI agents**, and turn on **Let AI apps control Recordful**.
+2. Chrome asks to allow screen recording. Click **Allow**. Recordful needs this the first time it records, and Chrome only asks on a click.
+
+## First recording
+
+1. Ask your AI to record something, for example "Record a demo of signing up on localhost:3000".
+2. When it asks, click the **Recordful icon** on the tab to record.
+3. The first time, Recordful opens a window naming your AI app and showing a 4-digit code. If it matches the one your AI shows, click **Allow**.
+
+After that you only click the icon on the tab you want recorded.

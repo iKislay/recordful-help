@@ -1,0 +1,11 @@
+{
+  "title": "AI agents",
+  "pages": [
+    "index",
+    "setup",
+    "setup-prompt",
+    "workflows",
+    "cli",
+    "safety"
+  ]
+}

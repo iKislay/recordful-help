@@ -1,0 +1,37 @@
+---
+title: Safety and troubleshooting
+description: "What AI agents can and cannot do with Recordful, how to revoke access, and fixes for common problems."
+---
+
+## What your AI can and cannot do
+
+- **Off until you turn it on**, and off again with one switch in **More → AI agents**.
+- **Local only.** The server listens on `127.0.0.1`, so other devices and web pages can't reach it. A recording leaves your computer only when it is uploaded to recordful.app (Pro).
+- **One tab.** Your AI acts only in the tab you handed it by clicking the Recordful icon.
+- **Paired once per computer** after you approve a matching 4-digit code. Only the official Recordful extension can connect by default.
+- **No credentials.** Uploads and transcripts use Recordful's own sign-in. Your AI never sees a token, and shouldn't ask you for one.
+- **It asks first.** Good agents show you their plan and ask before recording and before uploading. Tell yours to if it doesn't.
+- **Test data only.** Agents use test accounts and data. Sign in yourself on the tab first if a demo needs a real account.
+
+## Revoke access
+
+- In Recordful, **More → AI agents → Paired AI apps → Forget**.
+- Or from a terminal: `npx -y recordful-mcp unpair --all`.
+- Or turn the **AI agents** switch off.
+
+## Troubleshooting
+
+| Problem | Fix |
+| --- | --- |
+| "Recordful isn't connected" | Click the Recordful icon on the tab. Still nothing? Check **More → AI agents** is on |
+| The AI shows a 4-digit code | Check it matches Recordful's window, click **Allow**, tell the AI to continue |
+| `PERMISSIONS_NEEDED` | Recordful needs one-time permission to record. In **More → AI agents** turn the switch off and on again and click **Allow** in Chrome's prompt (or press Start recording in Recordful once) |
+| Recording won't start | Click the Recordful icon on the exact tab to record, then retry |
+| Recording waits forever | Recordful may be asking something: microphone access, or the screen picker in screen mode. Answer it. Tab and area modes need no picker |
+| `PRO_REQUIRED` or `NOT_SIGNED_IN` | Uploads and transcripts need a Recordful Pro account, signed in in Recordful. Recording works on every plan |
+| `BRIDGE_UNAVAILABLE` | Something other than recordful-mcp is using port 47823, or an older recordful-mcp is running. Update or close it |
+| No Recordful tools in the AI app | Check `node -v` is 20.10 or newer, then restart the app. Until it restarts the AI can use the [command line](/docs/ai-agents/cli) |
+
+Run `npx -y recordful-mcp status` to see the connection and pairing state.
+
+Still stuck? [Contact support](/docs/pro/contact).

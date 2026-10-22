@@ -1,0 +1,43 @@
+---
+title: Command line
+description: "Use recordful-mcp from a terminal or any agent with a shell: record, upload, list videos and read transcripts, with JSON output."
+---
+
+The same abilities as the MCP tools, for people and agents that prefer a shell. Click the Recordful icon on the tab to record first.
+
+```bash
+npx -y recordful-mcp start
+npx -y recordful-mcp stop
+npx -y recordful-mcp upload --title "Sign-up demo"
+npx -y recordful-mcp transcript > transcript.txt
+npx -y recordful-mcp videos
+```
+
+The first command asks you to click the Recordful icon once. A small background helper then keeps Recordful's connection for later commands and exits after 30 idle minutes.
+
+## Commands
+
+| Command | What it does | Plan |
+| --- | --- | --- |
+| `start [--tab <id>]` | Start recording with your Recordful settings | Free and Pro |
+| `pause`, `resume` | Pause or resume | Free and Pro |
+| `stop` | Stop; says where the recording went | Free and Pro |
+| `recordings` | Recordings saved on this computer | Free and Pro |
+| `status` | Connection, recorder, account and pairing state | Free and Pro |
+| `upload [<takeId>] [--title t] [--visibility private\|workspace\|public] [--force] [--no-wait]` | Upload a recording and print its links | Pro |
+| `videos [--limit n] [--query text]` | List your videos | Pro |
+| `video [<videoId>] [--wait]` | One video's links and upload stage | Pro |
+| `transcript [<videoId>] [--format text\|vtt\|json] [--no-wait]` | Print what was said | Pro |
+| `call <method> [json]` | Call one Recordful method directly, such as `page.click` | Free and Pro |
+| `install --target <app> [--yes]` | Add Recordful to an AI app's configuration | none |
+| `unpair [<id>\|--all]` | Forget a paired Recordful | none |
+| `setup`, `prompt`, `guide --json` | Setup steps, the [setup prompt](/docs/ai-agents/setup-prompt), and a description of everything for agents | none |
+
+Without a video or recording ID, commands use the last recording.
+
+## Output and exit codes
+
+- Add `--json` to any command for machine-readable output on stdout. Progress and hints go to stderr.
+- Exit code `0` is success, `1` is a failure (the error code is in the message, for example `PRO_REQUIRED`), and `2` means a transcript isn't ready yet. That is not a failure: retry, or leave off `--no-wait`.
+
+`npx -y recordful-mcp guide --json` prints tools, commands, error codes, plans and safety rules in one document. An agent should read that instead of relying on remembered commands.
