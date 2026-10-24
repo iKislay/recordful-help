@@ -28,6 +28,15 @@ The first command asks you to click the Recordful icon once. A small background 
 | `videos [--limit n] [--query text]` | List your videos | Pro |
 | `video [<videoId>] [--wait]` | One video's links and upload stage | Pro |
 | `transcript [<videoId>] [--format text\|vtt\|json] [--no-wait]` | Print what was said | Pro |
+| `update [<videoId>] [--title t] [--visibility private\|workspace\|public]` | Rename a video or change who may watch | Pro |
+| `activity [<videoId>]` | Views, likes and comments | Pro |
+| `comment [<videoId>] --body <text>` | Post a comment as you (public to viewers) | Pro |
+| `like [<videoId>] [--undo]` | Like or unlike | Pro |
+| `folders` | List your folders | Pro |
+| `folder-create <name> [--parent <folderId>]` | Create a folder | Pro |
+| `move <videoId>... [--to <folderId>]` | Move videos into a folder (no `--to`: the top level) | Pro |
+| `delete <videoId> --yes` | Delete a video permanently; `--yes` confirms that exact video | Pro |
+| `storage` | Cloud storage used | Pro |
 | `call <method> [json]` | Call one Recordful method directly, such as `page.click` | Free and Pro |
 | `install --target <app> [--yes]` | Add Recordful to an AI app's configuration | none |
 | `unpair [<id>\|--all]` | Forget a paired Recordful | none |
