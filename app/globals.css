@@ -12,6 +12,14 @@
   --border-interactive: #d4d3d0;
 }
 
+.dark {
+  --paper: #0d0d0d;
+  --ink: #fafafa;
+  --muted: #a3a3a3;
+  --border-subtle: #2a2a2a;
+  --border-interactive: #404040;
+}
+
 html body {
   background: var(--paper);
   color: var(--ink);
