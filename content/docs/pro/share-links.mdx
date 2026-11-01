@@ -1,10 +1,35 @@
 ---
 title: Share a recording with a link
-description: Turn on a share link, send it, and turn it off when done.
+description: Choose who can watch, send the link, start it at a moment, or embed it.
 ---
 
-With Pro, open the recording on the dashboard and enable its share link. Anyone with the link can watch until you disable it. Recordings are private to your workspace by default.
+Every cloud recording has a link: `recordful.app/view/<id>`. Who can open it depends on its **Who can watch** setting.
 
-<MediaPlaceholder kind="screenshot" label="Dashboard share toggle and copy-link button" />
+| Who can watch | Who can open the link |
+| --- | --- |
+| Private | Only you |
+| Shared with workspace only | Signed-in members of your workspace |
+| Public | Anyone with the link |
 
-If a link should not be public anymore, turn the toggle off. The old URL stops working immediately.
+To change it, open the recording (you need to have made it, or own the workspace), click **⋯** next to its title and pick **Who can watch**, or use **Share** under the player. A change applies right away: moving a public recording back to your workspace or to private stops the link working for everyone else.
+
+<MediaPlaceholder kind="screenshot" label="Recording page: the ⋯ menu with Who can watch" />
+
+## Link options
+
+Add these to the end of a link:
+
+- `?t=90` starts playing 90 seconds in.
+- `?captions=off` hides the captions.
+
+Use both with `&`, for example `recordful.app/view/<id>?t=90&captions=off`.
+
+## Embed a recording
+
+A public recording plays on other sites at `recordful.app/embed/<id>`, for example in an `<iframe>`. Add `?autoplay=1` to start playing as soon as it loads (browsers may still ask for a click). The link options above work here too.
+
+## Views and downloads
+
+Views count people outside your workspace who open the link. The person who made the recording, and the workspace owner, see where they came from under **⋯ > Analytics**.
+
+Only members of your workspace can download a recording. Viewers outside it can watch (and, when signed in, comment and like), but don't see **Download**.
