@@ -3,6 +3,7 @@
   "pages": [
     "trim-cut-mute",
     "crop",
+    "add-clips",
     "audio-tracks",
     "export",
     "five-minute-limit",
