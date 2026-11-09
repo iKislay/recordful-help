@@ -1,10 +1,38 @@
 ---
 title: Technical requirements
-description: What version of Chrome you need and which pages cannot be recorded.
+description: What you need to run Recordful on Windows, macOS, ChromeOS and Linux, and which pages cannot be recorded.
 ---
+
+## The Chrome extension and the editor
 
 - Google Chrome 110 or newer on Windows, macOS, ChromeOS, or Linux. Custom area recording needs Chrome 104 at minimum.
 - A camera and microphone only if you want to record them. Screen-only recording needs neither.
 - At least 1 GB of free space before a recording starts. Long recordings stream to disk, so free space matters more than RAM.
 
+The editor runs in Chrome too, at recordful.app, so everything you record can be edited on any of these systems.
+
 Chrome does not allow extensions on some pages (the Web Store, `chrome://` pages, new-tab pages on some setups). If you open the popup there, Recordful says the tab is not supported. Start the recording from another tab and switch back once it begins. Camera and toolbar overlays stay hidden on those pages.
+
+## Linux
+
+The extension and the editor work in Google Chrome on 64-bit Ubuntu, Fedora, Arch Linux, Linux Mint and Pop!_OS, and other distributions that run Chrome.
+
+- **Tab and area recordings** work the same as on any other system.
+- **Window and entire-screen recordings** go through your desktop's own screen-sharing dialog when you use Wayland, the default on recent Ubuntu, Fedora and Pop!_OS. Pick the window or screen there. If that dialog never appears, check that `xdg-desktop-portal` and PipeWire are installed (they are on these distributions out of the box).
+- **Click effects and auto-zoom** on a window or entire-screen recording are placed from where Chrome's window is on your screen, which Wayland may not tell Chrome. If they land in the wrong place, record a tab or an area instead: those are always placed exactly.
+
+## The desktop app
+
+- **Windows:** Windows 10 (build 19041) or Windows 11, 64-bit. [Download it](https://recordful.app/download).
+- **macOS and Linux:** not available to download yet.
+
+When the Linux app arrives it will be one AppImage for 64-bit Ubuntu, Fedora, Arch Linux, Linux Mint and Pop!_OS. Running an AppImage needs FUSE 2, which some distributions leave out:
+
+| Distribution | Install first |
+| --- | --- |
+| Ubuntu 24.04 and newer, Linux Mint 22, Pop!_OS 24.04 | `sudo apt install libfuse2t64` |
+| Ubuntu 22.04, Linux Mint 21, Pop!_OS 22.04 | `sudo apt install libfuse2` |
+| Fedora | `sudo dnf install fuse-libs` |
+| Arch Linux | `sudo pacman -S fuse2` |
+
+The desktop app finds your clicks for click effects and auto-zoom through X11. On a Wayland session, sign in to the "X11" or "Xorg" session from your login screen to keep them.
