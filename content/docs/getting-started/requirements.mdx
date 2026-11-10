@@ -23,10 +23,36 @@ The extension and the editor work in Google Chrome on 64-bit Ubuntu, Fedora, Arc
 
 ## The desktop app
 
-- **Windows:** Windows 10 (build 19041) or Windows 11, 64-bit. [Download it](https://recordful.app/download).
-- **macOS and Linux:** not available to download yet.
+- **macOS:** macOS 14 Sonoma or later. One download for Apple silicon (M1 or newer) and one for Intel Macs.
+- **Windows:** Windows 10 (build 19041) or Windows 11, 64-bit.
+- **Linux:** one AppImage for 64-bit Ubuntu, Fedora, Arch Linux, Linux Mint and Pop!_OS.
 
-When the Linux app arrives it will be one AppImage for 64-bit Ubuntu, Fedora, Arch Linux, Linux Mint and Pop!_OS. Running an AppImage needs FUSE 2, which some distributions leave out:
+[Download the app](https://recordful.app/download). The download page picks the right file for your computer.
+
+### First launch on a Mac
+
+The Mac app is not notarized by Apple yet, so the first time you open it macOS says it cannot check it for malicious software. Open it once like this, and it opens normally from then on:
+
+1. Drag Recordful from the disk image into **Applications**.
+2. Open Recordful. When macOS refuses, click **Done**.
+3. Open **System Settings → Privacy & Security**, scroll down and click **Open Anyway** next to Recordful, then confirm.
+
+Recordful then asks for **Screen & System Audio Recording** permission. Turn it on in the same settings page and reopen the app.
+
+### First launch on Windows
+
+Windows SmartScreen may say it protected your PC, because the installer is not code-signed yet. Click **More info**, then **Run anyway**.
+
+### First launch on Linux
+
+Make the file executable and run it:
+
+```bash
+chmod +x Recordful-linux-x64.AppImage
+./Recordful-linux-x64.AppImage
+```
+
+Running an AppImage needs FUSE 2, which some distributions leave out:
 
 | Distribution | Install first |
 | --- | --- |
