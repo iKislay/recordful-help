@@ -12,6 +12,7 @@ description: "What AI agents can and cannot do with Recordful, how to revoke acc
 - **No credentials.** Uploads and transcripts use Recordful's own sign-in. Your AI never sees a token, and shouldn't ask you for one.
 - **It asks first.** Good agents show you their plan and ask before recording and before uploading. Tell yours to if it doesn't.
 - **Changes need your yes.** Renaming, changing who can watch, commenting, moving, creating folders and deleting all happen as you, so a good agent shows you the exact change first. Comments are public to everyone who can watch. Deleting needs the exact video named and an explicit confirmation, and can't be undone.
+- **Desktop screenshots are off by default.** Your AI can screenshot your screen or a window only after you turn on **Let AI agents take screenshots** in the desktop app's **Settings → AI agents**, and only while the app is running. Each one shows a notification naming the AI, and the picture stays with you: it opens in the app's editor and never goes back to the AI. Turn the switch off to stop it.
 - **Test data only.** Agents use test accounts and data. Sign in yourself on the tab first if a demo needs a real account.
 
 ## Revoke access
@@ -31,6 +32,9 @@ description: "What AI agents can and cannot do with Recordful, how to revoke acc
 | Recording waits forever | Recordful may be asking something: microphone access, or the screen picker in screen mode. Answer it. Tab and area modes need no picker |
 | `PRO_REQUIRED` or `NOT_SIGNED_IN` | Uploads and transcripts need a Recordful Pro account, signed in in Recordful. Recording works on every plan |
 | `BRIDGE_UNAVAILABLE` | Something other than recordful-mcp is using port 47823, or an older recordful-mcp is running. Update or close it |
+| The AI says to turn on screenshots in the desktop app | Open the desktop app's **Settings → AI agents** and turn on **Let AI agents take screenshots** |
+| The AI says the desktop app isn't running | Open the Recordful desktop app (2.0.0 or newer), then ask again |
+| A window screenshot picks the wrong window | Ask your AI to run `list_windows` (or `recordful-mcp windows`) and use a more exact part of the title |
 | No Recordful tools in the AI app | Check `node -v` is 20.10 or newer, then restart the app. Until it restarts the AI can use the [command line](/docs/ai-agents/cli) |
 
 Run `npx -y recordful-mcp status` to see the connection and pairing state.
