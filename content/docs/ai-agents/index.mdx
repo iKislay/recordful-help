@@ -1,6 +1,6 @@
 ---
 title: Recordful for AI agents
-description: "Let Claude Code, Cursor, Codex, opencode or any AI app record product demos, upload them and read transcripts back, through MCP or a shell."
+description: "Let Claude Code, Cursor, Codex, opencode, Antigravity or any AI app record product demos, take screenshots, upload them and read transcripts back, through MCP or a shell."
 ---
 
 Ask your AI to "record how the new sign-up flow works". It plans a short walkthrough, asks you to click the Recordful icon on the tab, then navigates, clicks and types with a smooth on-screen cursor while Recordful records. When it stops, Recordful's editor opens with the video. With Recordful Pro it can also upload the video, hand you the link and read the transcript back.
@@ -15,18 +15,21 @@ Looking for the AI that edits inside Recordful's editor? That's the [Recordful A
 | --- | --- | --- |
 | Record a feature end to end | Start, pause, resume and stop, with page actions in between | Free and Pro |
 | Drive the page | Navigate, read the page, click, type, press keys, scroll, wait, screenshot | Free and Pro |
+| Take a screenshot | A Recordful screenshot of the tab (what's showing, or the whole page), opened in the screenshot editor in your usual look, or in 3D or another look when you ask | Free and Pro |
 | Share | Upload a recording and return the link | Pro |
 | Understand | Read back what was said (text or VTT) | Pro |
 | Find videos | List your videos and check an upload's progress | Pro |
 | Manage | Rename, set who can watch, organise into folders, check storage, delete | Pro |
 | Collaborate | Read views, likes and comments; like and comment as you | Pro |
 
+Ask for a screenshot in plain words: "screenshot the pricing page", "take a 3D screenshot of the whole page". The picture never goes back to the AI, so it costs only a few tokens, and the AI's cursor and Stop chip stay out of it. Needs Recordful 4.6.33 and recordful-mcp 0.8.0 or newer.
+
 On the free plan your AI records as usual and tells you once that links and transcripts come with Pro. It never fails for that reason.
 
 ## Two ways in
 
-- **MCP server.** Your AI app runs `npx -y recordful-mcp` and gets the tools. Works in Claude Code, Claude Desktop, Cursor, VS Code, Windsurf, opencode, Codex, Gemini CLI and any app that supports the Model Context Protocol.
-- **Command line.** Anything with a shell can use `recordful-mcp start`, `stop`, `upload`, `transcript` and more, with `--json` for machine-readable output. See [Command line](/docs/ai-agents/cli).
+- **MCP server.** Your AI app runs `npx -y recordful-mcp` and gets the tools. Works in Claude Code, Claude Desktop, Cursor, VS Code, Windsurf, opencode, Codex, Gemini CLI, Antigravity and any app that supports the Model Context Protocol.
+- **Command line.** Anything with a shell can use `recordful-mcp start`, `stop`, `screenshot`, `upload`, `transcript` and more, with `--json` for machine-readable output. See [Command line](/docs/ai-agents/cli).
 
 ## Get started in two minutes
 

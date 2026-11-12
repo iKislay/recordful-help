@@ -1,6 +1,6 @@
 ---
 title: Set up your AI app
-description: "Add Recordful to Claude Code, Claude Desktop, Cursor, Codex, opencode, VS Code, Windsurf or Gemini CLI."
+description: "Add Recordful to Claude Code, Claude Desktop, Cursor, Codex, opencode, VS Code, Windsurf, Gemini CLI or Antigravity."
 ---
 
 You need Chrome, [Recordful](https://chromewebstore.google.com/detail/hkcgjbkibidgbefehehenlmhjanjaopc) and [Node.js](https://nodejs.org) 20.10 or newer. The Claude Desktop bundle includes everything, so it doesn't need Node.
@@ -11,7 +11,7 @@ You need Chrome, [Recordful](https://chromewebstore.google.com/detail/hkcgjbkibi
 npx -y recordful-mcp install --target claude
 ```
 
-`--target` is one of `claude`, `cursor`, `codex`, `opencode`, `vscode`, `windsurf` or `gemini`. Without `--yes` it only shows what it would change; add `--yes` to apply:
+`--target` is one of `claude`, `cursor`, `codex`, `opencode`, `vscode`, `windsurf`, `gemini` or `antigravity`. Without `--yes` it only shows what it would change; add `--yes` to apply:
 
 ```bash
 npx -y recordful-mcp install --target cursor --yes
@@ -30,6 +30,7 @@ Or [paste one prompt](/docs/ai-agents/setup-prompt) into your AI app and let it 
 | Cursor | `~/.cursor/mcp.json` | the entry below |
 | Windsurf | `~/.codeium/windsurf/mcp_config.json` | the entry below |
 | Gemini CLI | `~/.gemini/settings.json` | the entry below |
+| Antigravity | `~/.gemini/antigravity/mcp_config.json` (or **Manage MCP Servers → View raw config**) | the entry below |
 | VS Code | **MCP: Add Server**, or `.vscode/mcp.json` | `{ "servers": { "recordful": { "type": "stdio", "command": "npx", "args": ["-y", "recordful-mcp"] } } }` |
 | opencode | `opencode.json` | `{ "mcp": { "recordful": { "type": "local", "command": ["npx", "-y", "recordful-mcp"], "enabled": true } } }` |
 | Codex | `~/.codex/config.toml` | `[mcp_servers.recordful]`, `command = "npx"`, `args = ["-y", "recordful-mcp"]` |
