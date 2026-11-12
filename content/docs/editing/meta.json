@@ -1,6 +1,7 @@
 {
   "title": "Editing and exporting",
   "pages": [
+    "agent",
     "trim-cut-mute",
     "crop",
     "add-clips",
