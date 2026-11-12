@@ -39,6 +39,6 @@ the same position. Sizes: screenshots 1280x800 to match the store set.
 `content/docs/`: getting-started (install, requirements, permissions,
 camera-mic, whats-new), recording (modes, audio, toolbar, countdown-alarm,
 camera-effects, limits), editing (trim-cut-mute, crop, audio-tracks, export,
-five-minute-limit, drive-save), troubleshooting (memory-limit,
+five-minute-limit, drive-save), desktop (screenshots), troubleshooting (memory-limit,
 recording-stopped, unsupported-tab, recovery, offline), pro (free-vs-pro,
 login, storage, share-links, contact).
