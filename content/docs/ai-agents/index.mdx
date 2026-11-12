@@ -16,6 +16,7 @@ Looking for the AI that edits inside Recordful's editor? That's the [Recordful A
 | Record a feature end to end | Start, pause, resume and stop, with page actions in between | Free and Pro |
 | Drive the page | Navigate, read the page, click, type, press keys, scroll, wait, screenshot | Free and Pro |
 | Take a screenshot | A Recordful screenshot of the tab (what's showing, or the whole page), opened in the screenshot editor in your usual look, or in 3D or another look when you ask | Free and Pro |
+| Screenshot your computer | With the desktop app: the whole screen, one window or an area, opened in the app's editor | Free and Pro |
 | Share | Upload a recording and return the link | Pro |
 | Understand | Read back what was said (text or VTT) | Pro |
 | Find videos | List your videos and check an upload's progress | Pro |
@@ -23,6 +24,10 @@ Looking for the AI that edits inside Recordful's editor? That's the [Recordful A
 | Collaborate | Read views, likes and comments; like and comment as you | Pro |
 
 Ask for a screenshot in plain words: "screenshot the pricing page", "take a 3D screenshot of the whole page". The picture never goes back to the AI, so it costs only a few tokens, and the AI's cursor and Stop chip stay out of it. Needs Recordful 4.6.33 and recordful-mcp 0.8.0 or newer.
+
+A new screenshot starts on a wallpaper photo picked to match its colours, unless you turned on **Remember my look**. A look your AI asks for is applied on top.
+
+With the [desktop app](/docs/desktop/screenshots) 2.0.0 and recordful-mcp 1.0.0, your AI can also screenshot your whole screen, one window or an area, outside Chrome: "screenshot the Figma window", "screenshot my second monitor". Turn it on once in the desktop app first; see [Desktop screenshots](#desktop-screenshots) below.
 
 On the free plan your AI records as usual and tells you once that links and transcripts come with Pro. It never fails for that reason.
 
@@ -41,5 +46,23 @@ On the free plan your AI records as usual and tells you once that links and tran
 ## Why you click the icon
 
 Chrome only lets an extension record a tab after a person has clicked it there, and no app can click for you. The click also marks the one tab your AI may act in. Everything else is up to your AI.
+
+## Desktop screenshots
+
+1. Open the desktop app's **Settings → AI agents** and turn on **Let AI agents take screenshots**. It's off until you do, and turning it on is the one-time allow.
+2. Keep the desktop app running and ask your AI for a screenshot of a window, a monitor or the whole screen.
+
+Each screenshot shows a notification naming the AI that took it, and opens in the app's editor. No image goes back to your AI.
+
+For the AI, `take_screenshot` takes these extra options:
+
+| Option | What it does |
+| --- | --- |
+| `source` | `"screen"`, `"window"` or `"area"`. Leave it out to screenshot the Chrome tab as before |
+| `window` | Part of a window's title or app name, for `source: "window"` |
+| `display` | Which monitor: `1`, `2`, … or `"main"` |
+| `look` | A look to apply, such as `"3d"` |
+
+A new tool, `list_windows`, lists the windows your AI can pick from. On the command line: `recordful-mcp screenshot --source window --window Figma` and `recordful-mcp windows` (see [Command line](/docs/ai-agents/cli)).
 
 See [Workflows](/docs/ai-agents/workflows) for things to ask, and [Safety and troubleshooting](/docs/ai-agents/safety) for what the AI can and cannot do, and fixes for common problems.
