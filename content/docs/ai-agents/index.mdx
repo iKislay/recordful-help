@@ -3,7 +3,7 @@ title: Recordful for AI agents
 description: "Let Claude Code, Cursor, Codex, opencode, Antigravity or any AI app record product demos, take screenshots, upload them and read transcripts back, through MCP or a shell."
 ---
 
-Ask your AI to "record how the new sign-up flow works". It plans a short walkthrough, asks you to click the Recordful icon on the tab, then navigates, clicks and types with a smooth on-screen cursor while Recordful records. When it stops, Recordful's editor opens with the video. With Recordful Pro it can also upload the video, hand you the link and read the transcript back.
+Ask your AI to "record how the new sign-up flow works". It plans a short walkthrough, opens the page in a tab of its own, then navigates, clicks and types with a smooth on-screen cursor while Recordful records. When it stops, Recordful's editor opens with the video. With Recordful Pro it can also upload the video, hand you the link and read the transcript back.
 
 It runs on your computer: nothing to host, no account, no API key. The AI never needs a browser of its own, because Recordful's tools do the clicking.
 
@@ -41,11 +41,11 @@ On the free plan your AI records as usual and tells you once that links and tran
 1. Install Recordful from the Chrome Web Store.
 2. Add Recordful to your AI app: [paste one prompt](/docs/ai-agents/setup-prompt) and let the AI do it, or follow [Set up your AI app](/docs/ai-agents/setup).
 3. In Recordful's popup, open **More → AI agents** and turn it on. Chrome asks to allow screen recording once; click **Allow**.
-4. Ask your AI to record something. When it asks, click the Recordful icon on the tab, and approve the 4-digit pairing code the first time.
+4. Ask your AI to record something. The first time, click the Recordful icon when it asks and approve the 4-digit pairing code. After that, Recordful connects to your AI app by itself (Recordful 4.7.0 and recordful-mcp 1.1.1 or newer; if you turned AI agents on before 4.7.0, turn it off and on once).
 
-## Why you click the icon
+## The one click left
 
-Chrome only lets an extension record a tab after a person has clicked it there, and no app can click for you. The click also marks the one tab your AI may act in. Everything else is up to your AI.
+Your AI opens its own tab to work in, so browsing, clicking, typing and screenshots need no click from you. Recording a tab is different: Chrome only lets an extension record a tab after a person has clicked its icon there, and no app can click for you. So when your AI wants to record a tab (tab or tab-area mode), it asks you to click the Recordful icon on that tab once. Screen mode needs no click, but Chrome's screen picker asks what to share.
 
 ## Desktop screenshots
 
