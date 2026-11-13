@@ -30,15 +30,22 @@ The first command may ask you to click the Recordful icon once to pair; after th
 | `upload [<takeId>] [--title t] [--visibility private\|workspace\|public] [--force] [--no-wait]` | Upload a recording and print its links | Pro |
 | `videos [--limit n] [--query text]` | List your videos | Pro |
 | `video [<videoId>] [--wait]` | One video's links and upload stage | Pro |
-| `transcript [<videoId>] [--format text\|vtt\|json] [--no-wait]` | Print what was said | Pro |
-| `update [<videoId>] [--title t] [--visibility private\|workspace\|public]` | Rename a video or change who may watch | Pro |
-| `activity [<videoId>]` | Views, likes and comments | Pro |
+| `transcript [<videoId>] [--format text\|vtt\|json] [--query <words>] [--no-wait]` | Print what was said; `--query` prints only the moments that mention it, with times | Pro |
+| `summary [<videoId>] [--generate \| --regenerate]` | The AI summary and chapters; `--generate` writes one and spends about 2 AI credits | Pro |
+| `update [<videoId>] [--title t] [--visibility private\|workspace\|public] [--password-stdin \| --no-password] [--expires <time> \| --no-expiry]` | Rename a video, change who may watch, or lock its link with a password (read from stdin, so it stays out of your shell history) or an end date | Pro |
+| `activity [<videoId>] [--days n]` | Views (where from, per day), likes and comments | Pro |
+| `analytics [--days n]` | Views per day across all your videos, and the most viewed | Pro |
 | `comment [<videoId>] --body <text>` | Post a comment as you (public to viewers) | Pro |
+| `comment-delete <videoId> <commentId> --yes` | Delete one comment for good | Pro |
 | `like [<videoId>] [--undo]` | Like or unlike | Pro |
 | `folders` | List your folders | Pro |
 | `folder-create <name> [--parent <folderId>]` | Create a folder | Pro |
 | `move <videoId>... [--to <folderId>]` | Move videos into a folder (no `--to`: the top level) | Pro |
-| `delete <videoId> --yes` | Delete a video permanently; `--yes` confirms that exact video | Pro |
+| `delete <videoId> --dry-run \| --yes` | `--dry-run` shows what would go; `--yes` moves that exact video to trash for 7 days | Pro |
+| `trash` | Deleted videos and when each is gone for good | Pro |
+| `restore <videoId>` | Bring a video back out of trash | Pro |
+| `members` | Who is in your workspace, and who is invited | Pro |
+| `invite <email> --yes` | Invite someone to your workspace (owner only) | Pro |
 | `storage` | Cloud storage used | Pro |
 | `call <method> [json]` | Call one Recordful method directly, such as `page.click` | Free and Pro |
 | `install --target <app> [--yes]` | Add Recordful to an AI app's configuration | none |
