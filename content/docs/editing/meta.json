@@ -3,6 +3,8 @@
   "pages": [
     "agent",
     "trim-cut-mute",
+    "motion",
+    "masks",
     "crop",
     "add-clips",
     "audio-tracks",
