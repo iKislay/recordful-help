@@ -1,10 +1,26 @@
 ---
 title: Recover a lost recording
-description: Restore the last recording and download raw data when the editor looks empty.
+description: "If Chrome crashes, the power cuts out or the extension updates while you record, Recordful keeps what you recorded and offers it back."
 ---
 
-- **Restore last recording:** the popup has a button that reopens the most recent capture.
+## After a crash
+
+Recordful saves your recording to your computer as it goes. If Chrome crashes, the computer loses power, or the extension updates in the middle of a recording, the part you already recorded is still there.
+
+The next time you open Recordful, it asks: **Your last recording was interrupted**.
+
+- **Recover recording** opens it in the editor, up to the moment it stopped. Export it or share it like any recording.
+- **Discard** lets it go. Its space is freed the next time you record.
+
+This works signed in or out, on every plan. If you close the question without choosing, the recording stays until your next recording, and **Restore last recording** in the popup's settings menu still finds it.
+
+<MediaPlaceholder kind="screenshot" label="The popup asking: Your last recording was interrupted, with Discard and Recover recording" />
+
+## Cloud recordings
+
+A cloud recording (Pro) uploads while you record. If it is cut off, the upload picks up where it stopped when Chrome is back, and the recording appears in your library.
+
+## If the editor looks empty
+
 - **Recovery mode:** if the editor loads without your video, it offers the raw video data for download. The raw file is the unprocessed capture: large, sometimes awkward to play, but complete.
 - **Diagnostic report:** the editor's Help menu downloads system info plus recent session data. Send it to support with a description of what happened. No video or audio is included.
-
-<MediaPlaceholder kind="screenshot" label="Editor recovery banner with restore and raw-download buttons" />
