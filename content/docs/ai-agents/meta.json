@@ -4,6 +4,7 @@
     "index",
     "setup",
     "setup-prompt",
+    "connector",
     "workflows",
     "cli",
     "safety"

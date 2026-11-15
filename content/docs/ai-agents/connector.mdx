@@ -1,0 +1,36 @@
+---
+title: Connect an AI app with no install
+description: "Add Recordful to Claude or any app that connects to a remote MCP server, sign in, and it can read your library: videos, transcripts, summaries and views."
+---
+
+The hosted connector lets an AI app read your Recordful library without installing anything on your computer. It is **read-only**: it can look things up, never change or delete them. To have an AI app record your browser or manage videos, use the [local server](/docs/ai-agents/setup) instead.
+
+## Add it
+
+1. In your AI app, add a custom connector (or "remote MCP server") with this address:
+
+   ```
+   https://recordful.app/mcp
+   ```
+
+2. The app sends you to recordful.app to sign in. Check what it asks for, **Can read your videos**, and approve.
+
+That's it. Ask things like "find the video where I demo the billing page", "what did I say about pricing in last week's update", or "which of my videos got the most views this month".
+
+## What it can do
+
+| Tool | What it reads |
+| --- | --- |
+| `list_videos` | Your videos, newest first, or by a search |
+| `get_video` | One video: its links, length and views |
+| `get_transcript` | What was said, or the moments a phrase comes up |
+| `get_summary` | The AI summary and chapters |
+| `get_video_activity` | Views over time and where they came from |
+| `get_analytics` | Views across your workspace |
+| `list_folders` | Your folders |
+
+It sees what you can see in your workspace, nothing more.
+
+## Remove an app
+
+Open **Settings** at recordful.app. Under **Connected AI apps**, each app shows what it may do and when it was last used. **Remove** ends its access at once; its next request is refused.

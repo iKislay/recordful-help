@@ -3,6 +3,11 @@
   "pages": [
     "agent",
     "trim-cut-mute",
+    "transcript",
+    "voice-eq",
+    "markers",
+    "shapes",
+    "presets-transitions",
     "motion",
     "masks",
     "crop",
