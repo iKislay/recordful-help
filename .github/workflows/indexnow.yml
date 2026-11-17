@@ -1,0 +1,10 @@
+name: IndexNow
+# Vercel reports each deploy to GitHub; once production is live, submit the sitemap.
+on: deployment_status
+jobs:
+  submit:
+    if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: node scripts/indexnow.mjs help.recordful.app
