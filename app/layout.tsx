@@ -3,6 +3,7 @@ import { RootProvider } from "fumadocs-ui/provider/next";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://help.recordful.app"),
   title: {
     default: "Recordful Help",
     template: "%s | Recordful Help",
