@@ -26,7 +26,8 @@ export default function proxy(req: NextRequest) {
   const path = req.nextUrl.pathname.toLowerCase();
   if (path === "/" || path === "/docs") return NextResponse.next();
   for (const [needle, dest] of RULES) {
-    if (path.includes(needle)) {
+    // Skip the clean URL itself, or memory-limit redirects to itself forever.
+    if (path.includes(needle) && path !== dest) {
       return NextResponse.redirect(new URL(dest, req.url), 308);
     }
   }
