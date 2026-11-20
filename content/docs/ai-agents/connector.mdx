@@ -1,35 +1,56 @@
 ---
 title: Connect an AI app with no install
-description: "Add Recordful to Claude or any app that connects to a remote MCP server, sign in, and it can read your library: videos, transcripts, summaries and views."
+description: "Add Recordful to Claude, ChatGPT, Cursor or any app that connects to a remote MCP server. It can find and read your videos, and with Recordful Pro edit, organise and share them."
 ---
 
-The hosted connector lets an AI app read your Recordful library without installing anything on your computer. It is **read-only**: it can look things up, never change or delete them. To have an AI app record your browser or manage videos, use the [local server](/docs/ai-agents/setup) instead.
+The hosted MCP server lets an AI app work with your Recordful library without installing anything on your computer. It can find and read your videos on every plan. With Recordful Pro it can also edit them (cuts, silences, filler words, zooms, captions, look, audio, overlays), look at them first (frames and storyboards), organise and share them, and read their analytics. To have an AI app record your browser, use the [local server](/docs/ai-agents/setup) instead.
 
 ## Add it
 
-1. In your AI app, add a custom connector (or "remote MCP server") with this address:
+The address is the same in every app:
 
-   ```
-   https://recordful.app/mcp
-   ```
+```
+https://recordful.app/mcp
+```
 
-2. The app sends you to recordful.app to sign in. Check that it asks only to read your videos, and approve.
+- **Claude (claude.ai and the desktop app):** Settings → Connectors → Add custom connector, paste the address.
+- **Claude Code:** `claude mcp add --transport http recordful https://recordful.app/mcp`
+- **ChatGPT:** Settings → Connectors → Create, paste the address (developer mode).
+- **Cursor, VS Code and others:** add a remote (Streamable HTTP) MCP server with the address.
 
-That's it. Ask things like "find the video where I demo the billing page", "what did I say about pricing in last week's update", or "which of my videos got the most views this month".
+The app sends you to recordful.app to sign in. It asks to **read your videos** and, separately, to **change your videos and folders**. Approve only what you want it to do: without the second, the tools that change things are refused.
+
+Then ask things like "cut the silences and ums out of yesterday's demo", "make a 30-second vertical clip of the part about pricing", "add captions and zoom in on every click", or "which of my videos got the most views this month".
 
 ## What it can do
 
-| Tool | What it reads |
-| --- | --- |
-| `list_videos` | Your videos, newest first, or by a search |
-| `get_video` | One video: its links, length and views |
-| `get_transcript` | What was said, or the moments a phrase comes up |
-| `get_summary` | The AI summary and chapters |
-| `get_video_activity` | Views over time and where they came from |
-| `get_analytics` | Views across your workspace |
-| `list_folders` | Your folders |
+| Group | What the tools do | Plan |
+| --- | --- | --- |
+| [Library](/docs/ai-agents/tools/library) | Find, search, read transcripts and summaries, rename, file, tag, trash, duplicate, upload | Reading every plan; the rest Pro |
+| [Edit a video](/docs/ai-agents/tools/editing) | Read the timeline, change it in one all-or-nothing batch | Pro |
+| [See a video](/docs/ai-agents/tools/see) | Storyboard, single frames, pointer moves and clicks, preview link | Pro |
+| [Clips and cuts](/docs/ai-agents/tools/clips) | Split, reorder, delete, duplicate, speed, transitions, cut by time or by words | Pro |
+| [Silences and filler words](/docs/ai-agents/tools/cleanup) | Find and cut long pauses, cut ums and uhs | Pro |
+| [Zooms](/docs/ai-agents/tools/zooms) | Add, change, remove, or make them from your clicks | Pro |
+| [Look](/docs/ai-agents/tools/look) | Background, frame, canvas shape, camera layout, click effects | Pro |
+| [Captions and chapters](/docs/ai-agents/tools/captions) | Captions and their style, word fixes, SRT or VTT file, chapters | Pro |
+| [Audio](/docs/ai-agents/tools/audio) | Volumes, voice clean-up and EQ, muted stretches | Pro |
+| [Shapes, blurs and watermark](/docs/ai-agents/tools/overlays) | Arrows, boxes, highlights, badges, blurs, spotlights, watermark | Pro |
+| [Sharing](/docs/ai-agents/tools/sharing) | Who may watch, password, expiry, call to action, viewers, members, comments, embeds | Pro |
+| [Views and analytics](/docs/ai-agents/tools/analytics) | Views over time, sources and campaigns, every view | Basic views every plan; the rest Pro |
+| [Webhooks](/docs/ai-agents/tools/webhooks) | A signed POST when a video is ready, viewed, transcribed or commented on | Pro |
+| [Account](/docs/ai-agents/tools/account) | Your plan and credits, an upgrade link | Every plan |
 
-It sees what you can see in your workspace, nothing more.
+It sees what you can see in your workspace, nothing more. Only the person who recorded a video, or the workspace owner, can edit it.
+
+## How edits stay safe
+
+- **Nothing is lost.** Edits change how the video plays, never the recording. Everything an AI does shows in Recordful's editor, where you can change or undo it.
+- **Versions.** Reading a timeline gives a `version`. An edit sent with `expectedVersion` applies only if nobody changed the video meanwhile; otherwise it answers `edit_conflict` and changes nothing. Tools that pick something by its number (a clip, a zoom, a shape) always need it.
+- **All or nothing.** `apply_video_edits` takes up to 200 changes and applies all of them or none.
+- **Retries are safe.** A call sent again with the same `_meta.idempotencyKey` within 24 hours returns the first answer instead of doing it twice.
+- **Typed errors.** Every failure has a code (`not_found`, `forbidden`, `invalid_argument`, `edit_conflict`, `not_ready`, `rate_limited` and others) and says whether trying again can help.
+- **Limits.** 200 tool calls a minute per person in each workspace.
 
 ## Remove an app
 

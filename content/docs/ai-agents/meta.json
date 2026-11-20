@@ -5,6 +5,7 @@
     "setup",
     "setup-prompt",
     "connector",
+    "tools",
     "workflows",
     "cli",
     "safety"
