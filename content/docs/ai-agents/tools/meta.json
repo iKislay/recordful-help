@@ -11,6 +11,7 @@
     "captions",
     "audio",
     "overlays",
+    "motion",
     "sharing",
     "analytics",
     "webhooks",
