@@ -1,6 +1,6 @@
 ---
 title: Edit with the Recordful Agent
-description: "Chat with an AI in the editor's sidebar and watch it edit your video: cut fillers and pauses, remove a section, add zooms, captions, titles and lower thirds, change the frame."
+description: "Chat with an AI in the editor's sidebar and watch it edit your video: remove mistakes and retakes, fix a line, set clip transitions, run saved skills, write a script and storyboard, add captions, zooms and titles. In the web editor and the desktop app."
 ---
 
 The Recordful Agent is an AI editor in a sidebar beside your video. Say what you want, and it makes each change in the editor while you watch. It is in beta and part of Pro.
@@ -9,8 +9,15 @@ The Recordful Agent is an AI editor in a sidebar beside your video. Say what you
 
 Open a recording in the editor at recordful.app, then press **Shift+S** or click the sparkle button in the top bar. Press **Shift+S** again, or the **×**, to close it.
 
+In the desktop app, open a recording and click the sparkle **Agent** button in the top bar. Sign in to your Recordful account first; it uses the same credits, skills and saved chats as the web editor.
+
 ## What to ask
 
+- "/full-edit" (the whole edit in one go)
+- "Remove my mistakes and retakes."
+- "I said 30 days, it's 14. Let me fix that line."
+- "Add a crossfade between the clips."
+- "Write a script and storyboard for a 2-minute demo of billing."
 - "Cut the filler words and long pauses."
 - "What is this video about?"
 - "Remove the part where I talk about pricing."
@@ -24,14 +31,40 @@ The agent can:
 
 - **Clean up speech.** Cut filler words (um, uh, a "like" that says nothing) and shorten long pauses, or put them back. These are the same as the **Filler words** and **Long pauses** switches under **Clean up**.
 - **Cut a stretch.** Remove a section by its time, or by its topic: it reads the transcript first and says which lines it will cut.
+- **Remove mistakes.** It finds retakes (a sentence started, stopped and said again, a line said twice, "let me do that again"), lists each with its time and words, then cuts them in one go, keeping your last take. Ask it to "review first" and it waits for you to pick which ones go.
+- **Fix one line.** For a word, name or number said wrong and never corrected, it mutes that line and shows **Record the line**: press it, the video plays from there, and you say it again over the same picture as a voiceover.
+- **Re-record one step.** It makes the step its own clip and shows **Add clip**: record or pick the new take, tell it when it's in, and it moves the new clip into place and takes the old step out.
+- **Clips and transitions.** Split, move or remove clips, and set the transition into a clip: cut, fade, crossfade, wipe or glitch. To put one at a moment inside a clip, it splits the clip there first.
 - **Zoom.** Add a zoom for a stretch of the video, following your pointer where its path was recorded, or remove all zooms.
 - **Captions.** Add captions (in a language you name, or the one it hears), remove them, or change their size and position.
 - **Motion.** Add a title, a lower third, a number callout or a highlighted sentence where it fits the transcript, with its words; change their words, move them or take them off. See [Motion](/docs/editing/motion).
 - **Frame.** Change the padding, rounded corners, shape (Auto, 16:9, 4:3, 1:1 or 9:16) and background (none, a colour or a gradient).
 - **Read the video.** Its length, clips and transcript.
+- **Write a script, outline or storyboard.** Each shows as a card in the chat that you can copy or download as Markdown. For a video you haven't recorded yet, it asks who it's for and how long, then writes the point, an outline, a script sized to the length and a shot-by-shot storyboard. Paste the script into the teleprompter when you record.
 - **Undo.** Like **Ctrl+Z**.
 
 It can't yet change layouts, add b-roll or music, or export. Ask and it will say so instead of pretending.
+
+## Skills
+
+A skill is a set of steps the agent can run again by name, in any video. Type **/** in the message box to see them, pick one, and send.
+
+Built in:
+
+- **/full-edit**: the whole edit from one prompt. Mistakes, fillers and pauses out, captions, a few zooms, crossfades between clips, a title and a lower third, in your remembered style.
+- **/remove-mistakes**: retakes and false starts out, keeping the last take.
+- **/auto-cut**: fillers, long pauses and retakes out, nothing else changed.
+- **/plan-video**: the point, an outline, a script and a storyboard for a video you're about to record.
+
+**Save your own.** After an edit you'll want again, say "save that as a skill". The agent shows the name, description and steps, and saves it once you say yes. It works from your next message, in every video. Ask it to "share it with my workspace" and everyone in your workspace can run it; only you can change or delete it. To change one, ask ("make tighten-demo also add captions"); to delete one, ask and confirm.
+
+## Your editing style
+
+Tell the agent how you like your videos ("always 9:16 with captions at the top", "I prefer crossfades to cuts") and it remembers, for every video, in the web editor and the desktop app. It also offers to remember a correction you make twice. Ask "what do you remember about my style?" to see it, or "forget my style" to clear it.
+
+## Saved chats
+
+Chats save as you go, under the video they're about. Click the clock button at the top of the sidebar to open an earlier one, or the pencil to start a new chat. When adding a clip reopens the editor, your last chat comes back by itself.
 
 ## Undo and stop
 
@@ -43,6 +76,5 @@ Each request spends a few of your workspace's AI credits, usually around 10. The
 
 ## Good to know
 
-- The chat lasts while the editor is open. Closing the editor starts a fresh chat next time.
 - The agent never makes up footage or words. Times it mentions come from your video.
-- It runs in the web editor. The desktop app's editor gets it later.
+- In the desktop app, the agent can cut, find and remove mistakes, split, move and remove clips, fix a line by voice, re-record a step, run skills, remember your style and write scripts and storyboards. Clip transitions, motion, zooms, the frame and captions by the agent are web-editor only for now. It reads the captions you make in the **Captions** panel, so make them first.
