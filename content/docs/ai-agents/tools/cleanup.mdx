@@ -9,7 +9,7 @@ Find and cut long pauses, and cut ums and uhs. 3 tools.
 
 ## `get_silences`
 
-**Pro.** Reads only. The silences of minSeconds or more in a Recordful video as it plays now, in seconds of the edited video, found between the lines of its transcript (so it needs one: not_ready means the user must transcribe it on its page first; this never starts one). remove_silences cuts them. Only the person who recorded it, or the workspace owner, can.
+**Pro.** Reads only. The silences of minSeconds or more in a Recordful video as it plays now, in seconds of the edited video, found between the lines of its transcript (so it needs one: not_ready means none yet; start one with transcribe_video). remove_silences cuts them. Only the person who recorded it, or the workspace owner, can.
 
 **Parameters**
 
@@ -23,7 +23,7 @@ Find and cut long pauses, and cut ums and uhs. 3 tools.
 
 ## `remove_silences`
 
-**Pro.** Changes something. Shorten every silence of minSeconds or more to keepSeconds, the way the editor's Long pauses switch does (that switch then shows them, and turning it off puts them back). Found between the lines of the video's transcript, so it needs one. Replaces silences this cut before. Pass expectedVersion from get_timeline or get_silences to apply only to the edit you read (edit_conflict otherwise). not_ready means the video has no transcript yet: the user must transcribe it on its page first; this never starts one. Only the person who recorded it, or the workspace owner, can.
+**Pro.** Changes something. Shorten every silence of minSeconds or more to keepSeconds, the way the editor's Long pauses switch does (that switch then shows them, and turning it off puts them back). Found between the lines of the video's transcript, so it needs one. Replaces silences this cut before. Pass expectedVersion from get_timeline or get_silences to apply only to the edit you read (edit_conflict otherwise). not_ready means the video has no transcript yet: start one with transcribe_video first. Only the person who recorded it, or the workspace owner, can.
 
 **Parameters**
 
