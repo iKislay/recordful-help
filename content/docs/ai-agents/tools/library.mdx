@@ -52,7 +52,7 @@ Find, read, rename, file, tag, trash, duplicate and upload videos. 24 tools.
 
 ## `get_transcript`
 
-**Pro.** Reads only. Read back what was said in a Recordful video. format: "text" (default), "vtt" (timed captions), "both", or "words" (each word still heard, with its index for cut_clip_by_transcript and when it plays now; indexes never change as words are cut). With query, returns only the moments that mention it (startMs, endMs, text; up to 30) instead of the whole transcript, so search with it first on long videos. Only the person who recorded it, or the workspace owner, can. If it hasn't been transcribed yet (status "none"), the user can transcribe it on its page on recordful.app; this connector doesn't start it.
+**Pro.** Reads only. Read back what was said in a Recordful video. format: "text" (default), "vtt" (timed captions), "both", or "words" (each word still heard, with its index for cut_clip_by_transcript and when it plays now; indexes never change as words are cut). With query, returns only the moments that mention it (startMs, endMs, text; up to 30) instead of the whole transcript, so search with it first on long videos. Only the person who recorded it, or the workspace owner, can. If it hasn't been transcribed yet (status "none"), start it with transcribe_video.
 
 **Parameters**
 
@@ -64,6 +64,19 @@ Find, read, rename, file, tag, trash, duplicate and upload videos. 24 tools.
 
 
 **Returns** `videoId`, `status`, `text`, `vtt`, `query`, `matches`, `totalMatches`, `words` (In seconds of the video as it plays now), `reason` (Why it failed, with status "failed"), `note`, `viewUrl` (The video's page on recordful.app), `editUrl` (Where the user edits it).
+
+## `transcribe_video`
+
+**Pro.** Changes something. Start transcribing a Recordful video, as its page's Transcribe button does: what was said becomes its transcript, captions, and the words get_transcript and cut_clip_by_transcript read. It runs in the background (status "working"; call get_transcript in a minute) and spends the workspace's AI credits, about 4 a minute of sound. Does nothing if it is already transcribed or working. Only the person who recorded it, or the workspace owner, can.
+
+**Parameters**
+
+| Parameter | Type | Required | What it is |
+| --- | --- | --- | --- |
+| `videoId` | string | yes | The video's id (videoId from list_videos). |
+
+
+**Returns** `videoId`, `status` ("done" when it already had a transcript.), `viewUrl` (The video's page on recordful.app), `editUrl` (Where the user edits it).
 
 ## `get_summary`
 
