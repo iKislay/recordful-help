@@ -36,7 +36,7 @@ Views over time, where they came from, and every view. 6 tools.
 
 ## `get_video_analytics`
 
-**Pro.** Reads only. How one video was watched over the last days (default 30): views in that time and all time, views per UTC day, and where they came from (sources, referring sites, UTM tags, link page vs embeds, countries), plus likes and comments. A view is one viewer opening the video's page or playing its embed; the same viewer again within 24 hours isn't counted again. Recordful doesn't record who watched (viewers stay anonymous), watch time, how far they got (retention) or call-to-action clicks.
+**Pro.** Reads only. How one video was watched over the last days (default 30): views in that time and all time, views per UTC day, where they came from (sources, referring sites, UTM tags, link page vs embeds, countries), how far plays got (retention: plays, watch time, average share watched, drop-off curve), plus likes and comments. A view is one viewer opening the video's page or playing its embed; the same viewer again within 24 hours isn't counted again. Recordful doesn't record who watched (viewers stay anonymous) or call-to-action clicks.
 
 **Parameters**
 
@@ -46,11 +46,11 @@ Views over time, where they came from, and every view. 6 tools.
 | `days` | integer | no | How many days back to count views per day (default 30). |
 
 
-**Returns** `videoId`, `days`, `views` (Views in the range), `totalViews` (Views since it was made), `daily`, `viewsBy` (Where views came from; null when they couldn't be counted just now (get_video_activity: or it has no views yet)), `likes`, `comments`, `viewUrl` (The video's page on recordful.app), `editUrl` (Where the user edits it).
+**Returns** `videoId`, `days`, `views` (Views in the range), `totalViews` (Views since it was made), `daily`, `viewsBy` (Where views came from; null when they couldn't be counted just now (get_video_activity: or it has no views yet)), `retention` (Null while nobody has played it in the range), `likes`, `comments`, `viewUrl` (The video's page on recordful.app), `editUrl` (Where the user edits it).
 
 ## `get_workspace_analytics`
 
-**Pro.** Reads only. How the user's whole library was watched over the last days (default 30): total views, views per UTC day, where they came from (sources, referring sites, UTM tags, link page vs embeds, countries) and the most viewed videos. Covers the videos the user can see, not those in trash. A view is one viewer opening the video's page or playing its embed; the same viewer again within 24 hours isn't counted again. Recordful doesn't record who watched (viewers stay anonymous), watch time, how far they got (retention) or call-to-action clicks.
+**Pro.** Reads only. How the user's whole library was watched over the last days (default 30): total views, views per UTC day, where they came from (sources, referring sites, UTM tags, link page vs embeds, countries) and the most viewed videos. Covers the videos the user can see, not those in trash. A view is one viewer opening the video's page or playing its embed; the same viewer again within 24 hours isn't counted again. Recordful doesn't record who watched (viewers stay anonymous) or call-to-action clicks.
 
 **Parameters**
 
@@ -64,7 +64,7 @@ Views over time, where they came from, and every view. 6 tools.
 
 ## `list_video_views`
 
-**Pro.** Reads only. Each view of one video over the last days (default 30), newest first: when, where from (source, referring site, UTM tags), link page or embed, and country. Pages of up to 100; pass nextCursor back as cursor. A view is one viewer opening the video's page or playing its embed; the same viewer again within 24 hours isn't counted again. Recordful doesn't record who watched (viewers stay anonymous), watch time, how far they got (retention) or call-to-action clicks.
+**Pro.** Reads only. Each view of one video over the last days (default 30), newest first: when, where from (source, referring site, UTM tags), link page or embed, and country. Pages of up to 100; pass nextCursor back as cursor. A view is one viewer opening the video's page or playing its embed; the same viewer again within 24 hours isn't counted again. Recordful doesn't record who watched (viewers stay anonymous) or call-to-action clicks.
 
 **Parameters**
 
@@ -80,7 +80,7 @@ Views over time, where they came from, and every view. 6 tools.
 
 ## `list_workspace_views`
 
-**Pro.** Reads only. Each view of any video the user can see (not in trash) over the last days (default 30), newest first, with the video it was of: when, where from, link page or embed, and country. Pages of up to 100; pass nextCursor back as cursor. A view is one viewer opening the video's page or playing its embed; the same viewer again within 24 hours isn't counted again. Recordful doesn't record who watched (viewers stay anonymous), watch time, how far they got (retention) or call-to-action clicks.
+**Pro.** Reads only. Each view of any video the user can see (not in trash) over the last days (default 30), newest first, with the video it was of: when, where from, link page or embed, and country. Pages of up to 100; pass nextCursor back as cursor. A view is one viewer opening the video's page or playing its embed; the same viewer again within 24 hours isn't counted again. Recordful doesn't record who watched (viewers stay anonymous) or call-to-action clicks.
 
 **Parameters**
 
