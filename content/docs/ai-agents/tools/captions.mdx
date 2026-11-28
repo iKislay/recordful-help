@@ -37,7 +37,7 @@ Captions from the transcript, their style, word fixes, a captions file and chapt
 
 ## `set_caption_style`
 
-**Pro.** Changes something. Change how the captions look, as the editor's Captions panel does. Only what is passed changes. Pass expectedVersion to apply only to the edit you read (edit_conflict otherwise). Returns the new version and timeline. Only the person who recorded it, or the workspace owner, can.
+**Pro.** Changes something. Change how the captions look, as the editor's Captions panel does. Only what is passed changes; a preset sets the whole look but size and position, then the rest is applied over it. Pass expectedVersion to apply only to the edit you read (edit_conflict otherwise). Returns the new version and timeline. Only the person who recorded it, or the workspace owner, can.
 
 **Parameters**
 
@@ -45,10 +45,16 @@ Captions from the transcript, their style, word fixes, a captions file and chapt
 | --- | --- | --- | --- |
 | `videoId` | string | yes | The video's id (videoId from list_videos). |
 | `expectedVersion` | string | no | The version get_timeline gave. |
+| `preset` | "classic", "karaoke", "boxed", "one-word", "one-word-color", "reveal" | no | A ready-made look: classic, karaoke (spoken word coloured), boxed (spoken word on a box, the bold Shorts look), one-word, one-word-color, reveal (words still to come dimmed). |
+| `active` | "color", "box", "fade" | no | How the spoken word stands out: in the highlight colour, on a box of it, or with the words still to come dimmed. |
+| `oneWord` | boolean | no | true shows one word at a time, as it is said. |
+| `lines` | integer | no | At most this many lines at once; a long line shows a part at a time. |
+| `upper` | boolean | no | true in capitals. |
+| `position` | "top", "middle", "shorts", "bottom" | no | Where they sit; shorts sits above the bottom, clear of the buttons TikTok, Shorts and Reels lay over a 9:16 video. |
 | `size` | number | no | Text height in pixels at 1080 tall, 24 to 72. |
 | `top` | boolean | no | true to show them at the top instead of the bottom. |
 | `plate` | boolean | no | true on a dark background, false outlined. |
-| `font` | "sans", "serif", "mono" | no |  |
+| `font` | "sans", "serif", "mono", "bold" | no |  |
 | `animation` | "none", "fade", "rise", "pop" | no | How a line arrives and leaves. |
 | `color` | string | no | The text's colour as #rrggbb. |
 | `highlight` | string or null | no | The colour of the word being spoken as #rrggbb; null for the text's own. |
